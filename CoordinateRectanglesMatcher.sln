@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoordinateRectanglesMatcher.API", "CoordinateRectanglesMatcher.API\CoordinateRectanglesMatcher.API.csproj", "{0DD6CFF8-8688-46E3-A238-9BA264E083E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoordinateRectanglesMatcher.Models", "CoordinateRectanglesMatcher.Models\CoordinateRectanglesMatcher.Models.csproj", "{6A5480AB-D85F-4B0A-99FD-52A0290974FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoordinateRectanglesMatcher.Services", "CoordinateRectanglesMatcher.Services\CoordinateRectanglesMatcher.Services.csproj", "{B739B416-8B14-4BB7-AD8E-2158A8580568}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoordinateRectanglesMatcher.DAO", "CoordinateRectanglesMatcher.DAO\CoordinateRectanglesMatcher.DAO.csproj", "{7461495D-B2EC-4331-9179-52CFA1DE2953}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0DD6CFF8-8688-46E3-A238-9BA264E083E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DD6CFF8-8688-46E3-A238-9BA264E083E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DD6CFF8-8688-46E3-A238-9BA264E083E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DD6CFF8-8688-46E3-A238-9BA264E083E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A5480AB-D85F-4B0A-99FD-52A0290974FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A5480AB-D85F-4B0A-99FD-52A0290974FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A5480AB-D85F-4B0A-99FD-52A0290974FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A5480AB-D85F-4B0A-99FD-52A0290974FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B739B416-8B14-4BB7-AD8E-2158A8580568}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B739B416-8B14-4BB7-AD8E-2158A8580568}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B739B416-8B14-4BB7-AD8E-2158A8580568}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B739B416-8B14-4BB7-AD8E-2158A8580568}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7461495D-B2EC-4331-9179-52CFA1DE2953}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7461495D-B2EC-4331-9179-52CFA1DE2953}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7461495D-B2EC-4331-9179-52CFA1DE2953}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7461495D-B2EC-4331-9179-52CFA1DE2953}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
