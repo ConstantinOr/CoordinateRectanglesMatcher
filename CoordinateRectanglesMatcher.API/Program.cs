@@ -26,10 +26,16 @@ var connectionString = config.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<CoordinateMatcherDbContext>(
     options => options.UseSqlServer(connectionString));
 
+builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
+{
+    builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+}));
+
 var app = builder.Build();
 
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseCors();
 
 if (app.Environment.IsDevelopment())
 {
