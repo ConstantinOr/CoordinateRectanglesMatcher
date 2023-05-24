@@ -2,11 +2,11 @@ using CoordinateRectanglesMatcher.Models.DTO;
 
 namespace CoordinateRectanglesMatcher.Models;
 
-public class RectangleEntity: RectangleDto, IEntity 
+public class RectangleEntity: IEntity 
 {
-    public long Id { get; set; }
-    public bool ContainsPoint(Point point)
-    {
-        return point.X >= X && point.X <= X + Width && point.Y >= Y && point.Y <= Y + Height;
-    }
+    public long Id { get; set; } // Id - auto-incremented pseudo primary key
+    public long X { get; set; } // X-coordinate of the bottom-left corner
+    public long Y { get; set; } // Y-coordinate of the bottom-left corner
+    public long Width { get; set; } // Width of the rectangle
+    public long Height { get; set; } // Height of the rectangle
 }

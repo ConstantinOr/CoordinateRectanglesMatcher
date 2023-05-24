@@ -5,9 +5,14 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <RootNamespace>CoordinateRectanglesMatcher</RootNamespace>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <UserSecretsId>b87ba66d-f739-41ff-a2b3-e49f304138c8</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="FluentValidation" Version="11.5.2" />
+        <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+        <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.5.2" />
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0-preview.3.23174.2" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="8.0.0-preview.3.23174.2" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="8.0.0-preview.3.23174.2" />
@@ -22,6 +27,12 @@
     <ItemGroup>
       <ProjectReference Include="..\CoordinateRectanglesMatcher.DAO\CoordinateRectanglesMatcher.DAO.csproj" />
       <ProjectReference Include="..\CoordinateRectanglesMatcher.Services\CoordinateRectanglesMatcher.Services.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
     </ItemGroup>
 
 </Project>

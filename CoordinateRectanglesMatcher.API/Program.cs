@@ -1,6 +1,11 @@
+using System.Reflection;
 using CoordinateRectanglesMatcher;
 using CoordinateRectanglesMatcher.DAO;
+using CoordinateRectanglesMatcher.Models;
 using CoordinateRectanglesMatcher.Services;
+using CoordinateRectanglesMatcher.Validators;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,13 +18,23 @@ var config = new ConfigurationBuilder()
 builder.Services.AddAuthentication("BasicAuthentication")
     .AddScheme<BasicAuthenticationOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddFluentValidation(options =>
+{
+    // Validate child properties and root collection elements
+    options.ImplicitlyValidateChildProperties = true;
+    options.ImplicitlyValidateRootCollectionElements = true;
+
+    // Automatic registration of validators in assembly
+    options.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+});;
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IRectangleService, RectangleService>();
 builder.Services.AddSingleton<ICustomAuthenticationManager, CustomAuthenticationManager>();
+
+builder.Services.AddSingleton<AuthModelValidator>();
 
 var connectionString = config.GetConnectionString("DefaultConnection");
 

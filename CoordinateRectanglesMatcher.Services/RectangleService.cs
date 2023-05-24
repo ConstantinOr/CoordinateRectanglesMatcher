@@ -21,7 +21,7 @@ public class RectangleService: IRectangleService
 
         for (var i = 0; i < numberOfRectangles; i++)
         {
-            RectangleEntity rectangleEntity;
+            RectangleEntity recEntity;
             do
             {
                 var x = random.NextInt64() * 100;
@@ -29,16 +29,19 @@ public class RectangleService: IRectangleService
                 var width = random.NextInt64() * 50;
                 var height = random.NextInt64() * 50;
 
-                rectangleEntity = new RectangleEntity
+                recEntity = new RectangleEntity
                 {
                     X = x,
                     Y = y,
                     Width = width,
                     Height = height
                 };
-            } while (uniqueRectangles.Exists(r => AreRectanglesEqual(r, rectangleEntity)));
+            } while (uniqueRectangles.Exists(r =>
+                         r.X == recEntity.X && r.Y == recEntity.Y && 
+                         r.Width == recEntity.Width && r.Height == recEntity.Height
+                         ));
 
-            uniqueRectangles.Add(rectangleEntity);
+            uniqueRectangles.Add(recEntity);
         }
 
         return uniqueRectangles;
@@ -54,7 +57,7 @@ public class RectangleService: IRectangleService
 
     public IEnumerable<SearchResult> Search(IEnumerable<Point> points)
     {
-        var rectagles =  _dbContext.Rectangle.OrderBy(x => x.Id).ToList();
+        var rectangles =  _dbContext.Rectangle.OrderBy(x => x.Id).ToList();
 
         var enumerable = points as Point[] ?? points.ToArray();
         if (!enumerable.Any())
@@ -64,8 +67,10 @@ public class RectangleService: IRectangleService
 
         return enumerable.Select(p =>
         {
-            return new SearchResult(p, rectagles.Where(x => x.ContainsPoint(p)).ToList());
-        }).ToList();
+            return new SearchResult(p, rectangles.Where(r =>
+                p.X >= r.X && p.X <= r.X + r.Width && p.Y >= r.Y && p.Y <= r.Y + r.Height
+            ).ToList());
+        });
     }
 
 
